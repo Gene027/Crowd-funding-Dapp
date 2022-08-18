@@ -3,37 +3,25 @@
 export const main = Reach.App(() => {
   const Alice =  Participant('Alice', {
     expected: UInt,
-    unitAmount: UInt,
     checkBalance: Fun([], Null),
-    donationAlert: Fun([Address], Null),
-    viewProgress: Fun([UInt], Null)
+    donationAlert: Fun([Address, UInt, UInt], Null)
   });
   const Bob = API('Bob', {
     viewProgress: Fun([], Object({ progress: UInt, expected: UInt})),
-    donate: Fun([], Bool),
-    viewUnitAmount: Fun([], UInt)
+    donate: Fun([UInt], Bool),
   });
 
   init();
 
   Alice.only(() => {
     const expected = declassify(interact.expected);
-    const unitAmount = declassify(interact.unitAmount);
   })
-  Alice.publish(expected, unitAmount);
+  Alice.publish(expected);
   
   const [ counter, progress ] = 
     parallelReduce([ 0, 0 ])
       .invariant(balance() == progress)
       .while(progress < expected)
-      .api_(Bob.viewUnitAmount, () => {
-        check( this != Alice, "Not Deployer");
-
-        return [ 0, (resolve) => {
-          resolve(unitAmount);
-          return [ counter, progress ];
-        }];
-      })
       .api_(Bob.viewProgress, () => {
         check( this != Alice, "Not Deployer");
 
@@ -42,14 +30,13 @@ export const main = Reach.App(() => {
           return [ counter, progress ];
         }];
       })
-      .api_(Bob.donate, () => {
+      .api_(Bob.donate, (donation) => {
         check( this != Alice, "Not Deployer");
 
-        return [ unitAmount * 1000000, (resolve) => {
-          Alice.interact.donationAlert(this);
-          Alice.interact.viewProgress(progress + unitAmount);
+        return [ donation, (resolve) => {
+          Alice.interact.donationAlert(this, donation, progress+donation);
           resolve(true);
-          return [ counter + 1, progress + (unitAmount * 1000000) ];
+          return [ counter + 1, progress + donation ];
         }];
       });
 
