@@ -1,6 +1,7 @@
 export const views = {
   CONNECT_ACCOUNT: 'Connect account',
   DEPLOY_OR_ATTACH: 'Deploy or attach',
+  ABOUT: 'About',
 
   //Deployer
   DEPLOYING: 'Deploying',

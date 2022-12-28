@@ -13,7 +13,7 @@ reach.setWalletFallback(reach.walletFallback( { providerEnv: 'TestNet', MyAlgoCo
 function App() {
   const [ account, setAccount ] = useState({})
   const [ contract, setContract ] =  useState()
-  const [ view, setView ] = useState(views.CONNECT_ACCOUNT)
+  const [ view, setView ] = useState(views.DEPLOY_OR_ATTACH)
   const [ contractInfo, setContractInfo ] = useState(`{"type":"BigNumber","hex":"0xlade"}`)
   const [ expected, setExpected ] = useState()
   const [ donors, setDonors ] = useState([
@@ -42,10 +42,10 @@ function App() {
 
     setAsDeployer: (deployer = true) => {
       if(deployer){
-        setView(views.SET_TOKEN_INFO);
+        setView(views.CONNECT_ACCOUNT);
       }
       else{
-        setView(views.PASTE_CONTRACT_INFO);
+        setView(views.CONNECT_ACCOUNT);
       }
     },
 
@@ -101,11 +101,13 @@ function App() {
 
   console.log(donors)
   
+
+  //SCREEN RENDERS
   return (
     <div className="App">
-      <div className='top'>
+      {/* <div className='top'>
         <h1>Crowd Funding</h1>
-      </div>
+      </div> */}
       <header className="App-header">
         {
           view === views.CONNECT_ACCOUNT && 

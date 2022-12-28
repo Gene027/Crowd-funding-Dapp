@@ -1,0 +1,96 @@
+.home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background:linear-gradient(to right, rgb(217, 231, 238), white);
+}
+
+.left-section {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    color: rgba(6, 6, 128, 0.849);
+}
+
+.dreamfund-logo {
+    padding: 20px;
+    width: 80px;
+    border-radius: 40px;
+}
+.right-section {
+    font-weight: 500;
+    font-size: 20px;
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+.right-section:hover {
+    cursor: pointer;
+    color: rgb(141, 7, 7);
+}
+.footer {
+    margin-top: auto;
+}
+
+/* Middle */
+.start-campaign {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 300px;
+    background-image: url("../../public/start-campaign.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.start-campaign div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    font-size: 36px;
+    font-weight: 900;
+    color: rgb(19, 19, 136);
+}
+.start-a-campaign {
+    height: 60px;
+    width: 250px;
+    margin-top: 50px;
+    cursor: pointer;
+    background-color: rgb(247, 250, 253);
+    font-size: 22px;
+    font-weight: 700;
+    color: rgb(19, 19, 136);
+    border-radius: 20px;
+    transition: 0.3s;
+
+}
+
+.start-a-campaign:hover {
+    transform: scale(110%);
+}
+
+/* GRID */
+
+.campaign-grid {
+    margin-top: 20px;
+   display: grid; 
+   grid-template-columns: 1fr 1fr 1fr;
+   column-gap: 15px;
+   row-gap: 40px;
+}
+.campaign-preview {
+    border: 1px;
+    border-width: 2px;
+}
+.cover-img{
+    width:100%;
+
+}
