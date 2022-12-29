@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './index.css'
 import './homepage.css'
-import data from "./data";
-import Card from "./Card";
+import data from "./components/data";
+import Card from "./components/Card";
 
 
 
@@ -51,9 +51,8 @@ export function SelectRole({deploy, attach, expected, setExpected}){
               <div className='start-campaign-btn-container'>
               <button className='start-a-campaign' onClick={() => setDeployer(true)}> Start a Campaign</button>
               </div>
-             
             </div>
-
+            
             <div className='campaign-grid'> {cards} </div>
 
             <div className='footer'>

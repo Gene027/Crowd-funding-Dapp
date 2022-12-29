@@ -1,5 +1,5 @@
 import React from "react"
-import './homepage.css'
+import '../homepage.css'
 
 export default function Card({item, attach}) {
     return (
@@ -9,12 +9,12 @@ export default function Card({item, attach}) {
             </div>
 
             <div className="campaign-descriptions">
-                <p>{item.title}</p>
+                <p1>{item.title}</p1>
                 <p>{item.description}</p>
             </div>
 
             <div className="campaign-stats">
-                <div className="cost">{item.cost}</div>
+                <div className="cost"> Cost: <span>${item.cost}</span></div>
                 <div className="num-donor">{item.donorCount}</div>
                 <div className="progress">
                     <div className="progress-bar"></div>
@@ -22,8 +22,8 @@ export default function Card({item, attach}) {
                 </div>
             </div>
 
-            <div className="donate-btn">
-            <button className='button' onClick={() => attach()}>Donate</button>
+            <div className="donate">
+            <button className='donate-btn' onClick={() => attach()}>Donate</button>
             </div>
         </div>
     )

@@ -10,6 +10,8 @@
     flex-direction: row;
     align-items: center;
     background:linear-gradient(to right, rgb(217, 231, 238), white);
+   border-style: groove;
+   border-radius: 10px;
 }
 
 .left-section {
@@ -37,19 +39,18 @@
     cursor: pointer;
     color: rgb(141, 7, 7);
 }
-.footer {
-    margin-top: auto;
-}
 
 /* Middle */
 .start-campaign {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: -1px 0px;
     height: 300px;
     background-image: url("../../public/start-campaign.jpg");
     background-size: cover;
     background-position: center;
+    border-bottom-style: groove;
 }
 .start-campaign div {
     display: flex;
@@ -70,7 +71,6 @@
     color: rgb(19, 19, 136);
     border-radius: 20px;
     transition: 0.3s;
-
 }
 
 .start-a-campaign:hover {
@@ -87,10 +87,51 @@
    row-gap: 40px;
 }
 .campaign-preview {
-    border: 1px;
-    border-width: 2px;
+    border-style: ridge;
+    margin: 10px;
+    border-radius: 15px;
+}
+.cover {
+    height: 280px;
 }
 .cover-img{
     width:100%;
+    height: 250px;
+    border-radius: 12px;
+}
 
+.campaign-descriptions {
+    padding-left: 5px;
+}
+.campaign-descriptions p1{
+font-weight: 500;
+font-size: large;
+}
+.campaign-stats {
+    padding-left: 5px;
+}
+
+.donate {
+    display:flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.donate-btn {
+    width: 160px;
+    cursor: pointer;
+    background-color: rgb(247, 250, 253);
+    font-size: 22px;
+    font-weight: 400;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.donate-btn:hover{
+    transform: scale(110%);
+    color: rgb(153, 1, 1);
+}
+
+
+.footer {
+    margin-top: auto;
+    margin-left: auto;
 }
