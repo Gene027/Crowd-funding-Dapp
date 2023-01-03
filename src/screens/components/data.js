@@ -16,7 +16,7 @@ const data =
         description: "This is a web 3.0 project aimed at building a scalable crowd funding dapp",
         cost: 1000,
         img: "start-campaign-3.jpg",
-        progress: 0,
+        progress: 50,
         donorCount: 0,
     },
     {

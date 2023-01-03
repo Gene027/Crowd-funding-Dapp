@@ -1,12 +1,22 @@
 import './index.css'
+import './homepage.css'
 
-export function About() {
+export function About({ setView }) {
     return (
         <div>
+
+            <div className='header'>
+                <div className='left-section'>
+                {/* onClick={setView('Homepage')} */}
+                    <h1>DreamFunds</h1> 
+                    <img className='dreamfund-logo' src="dollar.jpg" alt="" />
+                </div>
+            </div>
+
             <div className='about-us'>
-            <h1>How it works</h1>
-            <p>Our platform is easy to use and guarantees no hidden charges</p>
-            <p>All campaigns are moderated using web 3.0 technology with assurance of safety</p>
+                <h1>How it works</h1>
+                <p>Our platform is easy to use and guarantees no hidden charges</p>
+                <p>All campaigns are moderated using web 3.0 technology with assurance of safety</p>
             </div>
 
             <div className='about-guide'>
@@ -15,7 +25,7 @@ export function About() {
                 <p>Every campaign is connected to algorand network. You need a secured and active algorand account to sucessfully deploy a campaign.</p>
                 <h3>When And How Do I Get Paid?</h3>
                 <p>All campaigns are not limited to time and your account will be automatically funded once it hits the required amount as proposed by you.</p>
-                
+
             </div>
         </div>
     )
