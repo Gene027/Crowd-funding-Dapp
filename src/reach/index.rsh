@@ -3,8 +3,9 @@
 export const main = Reach.App(() => {
   const Alice =  Participant('Alice', {
     expected: UInt,
+    id: Bytes(8),
     checkBalance: Fun([], Null),
-    donationAlert: Fun([Address, UInt, UInt], Null)
+    donationAlert: Fun([Address, UInt, UInt, Bytes(8)], Null)
   });
   const Bob = API('Bob', {
     viewProgress: Fun([], Object({ progress: UInt, expected: UInt})),
@@ -15,12 +16,13 @@ export const main = Reach.App(() => {
 
   Alice.only(() => {
     const expected = declassify(interact.expected);
+    const id = declassify(interact.id);
   })
-  Alice.publish(expected);
+  Alice.publish(expected, id);
   
   const [ counter, progress ] = 
     parallelReduce([ 0, 0 ])
-      .invariant(balance() == progress)
+      .invariant(balance() == progress * 1000000)
       .while(progress < expected)
       .api_(Bob.viewProgress, () => {
         check( this != Alice, "Not Deployer");
@@ -33,8 +35,8 @@ export const main = Reach.App(() => {
       .api_(Bob.donate, (donation) => {
         check( this != Alice, "Not Deployer");
 
-        return [ donation, (resolve) => {
-          Alice.interact.donationAlert(this, donation, progress+donation);
+        return [ donation * 1000000, (resolve) => {
+          Alice.interact.donationAlert(this, donation, progress+donation, id);
           resolve(true);
           return [ counter + 1, progress + donation ];
         }];

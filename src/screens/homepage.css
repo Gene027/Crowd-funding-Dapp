@@ -1,16 +1,15 @@
 .home {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     background: linear-gradient(to right, rgb(217, 231, 238), white);
 }
 
-.header {
+.nav-header {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: linear-gradient(to right, rgb(217, 231, 238), white);
+    background: rgb(68, 129, 159);
     box-shadow: 0px 5px 10px grey;
 
     z-index: 10;
@@ -37,11 +36,39 @@
     justify-content: end;
     padding-bottom: 15px;
     padding-right: 20px;
+    gap: 10px;
+    align-items: center;
 }
 
-.right-section:hover {
+.how-it-works{
+    border: 1px solid black;
+    padding: 8px 10px;
+    border-radius: 10px;
     cursor: pointer;
-    color: rgb(141, 7, 7);
+}
+
+.connect-wallet{
+    width: 180px;
+    border: 1px solid black;
+    padding: 8px 13px;
+    border-radius: 10px;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.connect-wallet span{
+    width: 100%;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+.hover-effect:hover{
+    background-color: rgba(6, 6, 128, 0.849);
+    color: antiquewhite;
+    transition: 0.5s;
 }
 
 /* Middle */
@@ -56,19 +83,20 @@
 }
 
 
-.start-campaign div {
+.start-campaign div{
     display: flex;
     justify-content: center;
     margin-bottom: 60px;
     font-size: 36px;
     font-weight: 900;
     color: rgb(19, 19, 136);
+    overflow: hidden;
 }
 
-.start-a-campaign {
+.start-campaign-btn{
     height: 60px;
     width: 250px;
-    margin-top: 30px;
+    margin: 30px auto;
     cursor: pointer;
     background: linear-gradient(to right, rgb(217, 231, 238), white);
     font-size: 22px;
@@ -79,9 +107,10 @@
     transition: 0.2s;
 }
 
-.start-a-campaign:hover {
-    transform: scale(110%);
-    color: darkred;
+.start-campaign button:hover {
+    /* transform: scale(110%); */
+    /* color: darkred; */
+    background: linear-gradient(to left, rgb(3, 85, 126), white);
 }
 
 /* GRID */
@@ -89,17 +118,39 @@
 .campaign-grid {
     margin-bottom: 30px;
     padding: 0px 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 50px;
-    row-gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+    min-height: 600px;
+}
+
+.no-campaigns-yet{
+    font-size: 30px;
+    margin-top: 150px;
+    color: blue;
 }
 
 .campaign-preview {
-    border-style: ridge;
-    border-width: 1px;
+    border: none;
     margin: 10px;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 530px;
+    padding: 10px;
+    color: rgb(70, 69, 69);
+    background-color: white;
+    box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+}
+
+.important-message{
+    text-align: center;
+    width: 100%;
+    padding: 8px;
+    font-size: 10px;
+    color: teal;
 }
 
 .cover {
@@ -110,10 +161,13 @@
     width: 100%;
     height: 250px;
     border-radius: 12px;
+    object-fit: cover;
 }
 
 .campaign-descriptions {
-    padding-left: 5px;
+    font-weight: 600;
+    color: rgb(70, 69, 69);
+    text-align: center;
 }
 
 .campaign-descriptions p1 {
@@ -122,14 +176,19 @@
 }
 
 .campaign-stats {
-    padding-left: 5px;
-    color: rgb(53, 53, 53);
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .donate {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+    margin-top: auto;
 }
 
 .progress {
@@ -137,6 +196,8 @@
     flex-direction: row;
     justify-content: space-between;
     padding-right: 10px;
+    font-weight: 400;
+    margin-top: 20px;
 }
 
 .bar-container {
@@ -158,11 +219,16 @@
     border-radius: 10px;
     transition: 0.2s;
     border-width: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 
 .donate-btn:hover {
-    transform: scale(110%);
-    color: darkred;
+    /* transform: scale(105%);
+    color: darkred; */
+    background: linear-gradient(to left, rgb(3, 85, 126), white);
 }
 
 

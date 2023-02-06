@@ -6,6 +6,7 @@ export const views = {
   //Deployer
   DEPLOYING: 'Deploying',
   CROWD_FUND: 'Crowd fund',
+  CREATE_CAMPAIGN: 'Create campaign',
 
   //Attacher
   PASTE_CONTRACT_INFO: 'Paste contract info',
