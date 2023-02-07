@@ -3,10 +3,10 @@ import './index.css'
 import './homepage.css'
 import data from "./components/data";
 import Card from "./components/Card";
+import ConnectAccount from "./ConnectAccount";
 
 
-
-export function HomePage ({ deploy, attach, expected, setExpected, setView}) {
+export function HomePage ({ deploy, attach, expected, connect}) {
   const [deployer, setDeployer] = useState(false)
 
   const cards = data.map(item => {
@@ -29,9 +29,9 @@ export function HomePage ({ deploy, attach, expected, setExpected, setView}) {
               <input
                 className='target-amount'
                 type={'number'}
+                min={'0'}
                 value={expected}
-                placeholder={"Algo"}
-                onChange={e => setExpected(e.target.value)}
+                // onChange={e => setExpected(e.target.value)}
               />
               <br />
               <button className='button' onClick={() => deploy()}>Submit</button>

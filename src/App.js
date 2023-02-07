@@ -118,7 +118,7 @@ function App() {
 
         {
           view === views.HOMEPAGE &&
-          <HomePage deploy={reachFunctions.deploy} attach={() => setView(views.PASTE_CONTRACT_INFO)} expected={expected} setExpected={setExpected} setView ={setView} />
+          <HomePage deploy={reachFunctions.deploy} attach={() => setView(views.PASTE_CONTRACT_INFO)} expected={expected} setExpected={setExpected} connect={reachFunctions.connect} />
         }
 
         {
