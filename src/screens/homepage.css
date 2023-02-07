@@ -20,6 +20,7 @@
     flex-direction: row;
     padding-left: 20px;
     color: rgba(6, 6, 128, 0.849);
+    cursor: pointer;
 }
 
 .dreamfund-logo {

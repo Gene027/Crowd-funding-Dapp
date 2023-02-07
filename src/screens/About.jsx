@@ -1,18 +1,9 @@
 import './index.css'
 import './homepage.css'
 
-export function About({ setView }) {
+export function About() {
     return (
         <div>
-
-            <div className='header'>
-                <div className='left-section'>
-                {/* onClick={setView('Homepage')} */}
-                    <h1>DreamFunds</h1> 
-                    <img className='dreamfund-logo' src="dollar.jpg" alt="" />
-                </div>
-            </div>
-
             <div className='about-us'>
                 <h1>How it works</h1>
                 <p>Our platform is easy to use and guarantees no hidden charges</p>

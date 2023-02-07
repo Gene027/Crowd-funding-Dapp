@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import { views, makeid } from './utils';
 import { ConnectingLoader } from './screens/components/ConnectingLoader';
 import { FaPowerOff } from 'react-icons/fa';
-import { data, myCampaigns } from './screens/components/data';
 import Card from './screens/components/Card';
 import { Donate } from './screens/components/Donate';
 import { SetCampaignDetails } from './screens/SetCampaignDetails';
@@ -280,7 +279,13 @@ function App() {
 
       <div>
           <div className='nav-header'>
-              <div className='left-section'>
+              <div className='left-section'
+              title='Homepage'
+              onClick={()=>{
+                if(view !== views.HOMEPAGE) {
+                  setView(views.HOMEPAGE)
+                }
+              }}>
                 <h1>DreamFunds</h1>
                 <img className='dreamfund-logo' src="/dollar.jpg" alt="" />
               </div>
@@ -290,7 +295,8 @@ function App() {
                   view === views.CROWD_FUND && 
                   <div onClick={() => setView(views.CREATE_CAMPAIGN)} className='how-it-works hover-effect'>New Campaign</div>
                 }
-                <div className='how-it-works hover-effect'>How it works</div>
+                <div className='how-it-works hover-effect'
+                onClick={() =>{setView(views.ABOUT)}}>How it works</div>
                 <div 
                     className='connect-wallet hover-effect' 
                     title={ address ? `Click to switch wallet` : ''}
@@ -331,7 +337,7 @@ function App() {
               {
                 view === views.CROWD_FUND &&
                 <div className='crowd-fund'>
-                    <div className='title-bar'>My Crowdfunds</div>
+                    <div className='title-bar'>My Projects</div>
                     {
                       myCampaigns.map((item, index) => (
                         <CrowdFund
