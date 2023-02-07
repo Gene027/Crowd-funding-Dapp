@@ -1,48 +1,53 @@
-import './index.css'
+import './crowdfund.css'
 
-export function CrowdFund({info, expected, progress, donors, update, complete}){
+export function CrowdFund({address, expected, progress, donors, title, description, img}){
   
   return(
-    <div className='section' style={{display: 'flex', flexDirection: 'column'}}>
-      {
-        complete ? 
-        <h6>Target Amount Successfully Raised</h6>
-        :
-        <h6>Contract Address: {info}</h6>
-      }
-      <h5>Progress: {(progress/expected) * 100}%</h5>
-      <h5>Expected: {expected} ALG</h5>
-      <small style={{color: 'transparent'}}>{update}</small>
-      <table className='donors'>
-        <thead>
-          <tr>
-            <td>Donor</td>
-            <td>Amount (ALG)</td>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            donors.length === 0 ?
-            <tr>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            :
-            donors.map((donor, index) => (
-              <tr key={index}>
-                <td>{donor.address}</td>
-                <td>{donor.donation}</td>
-              </tr>
-            ))
-          }
-        </tbody>
-        <tfoot>
-          <tr>
-            <td>Total</td>
-            <td>{progress}</td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
+    <div className='crowdfund-card'>
+        <div className='crowdfund-left-section'>
+            <div title='Contract Addresss' className='crowdfund-contract-address'>{address}</div>
+            <div>Title: <span className='detail-text'>{title}</span></div>
+            <div>Description: <span className='detail-text'>{description}</span></div>
+            <div>Expected: <span className='detail-text'>{expected} ALG</span></div>
+            <div className='crowdfund-progress'>
+              Progress:
+              <div className='progress-meter'>
+                <div style={{width: `${(progress/expected) * 100}%`}}></div>
+              </div>
+              {Math.floor((progress/expected) * 100)}%
+            </div>
+            <table className='campaign-donors'>
+              <thead>
+                <tr>
+                  <td>DONOR</td>
+                  <td>AMOUNT (ALG)</td>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  donors.length === 0 ?
+                  <tr>
+                    <td>-</td>
+                    <td>-</td>
+                  </tr>
+                  :
+                  donors.map((donor, index) => (
+                    <tr key={index}>
+                      <td>{donor.address}</td>
+                      <td>{donor.donation}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>TOTAL</td>
+                  <td>{progress}</td>
+                </tr>
+              </tfoot>
+            </table>
+        </div>
+        <img className='crowdfund-right-section' src={img ? img : '/start-campaign.jpg'}/>
+      </div>
   )
 }

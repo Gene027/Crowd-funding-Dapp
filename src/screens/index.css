@@ -1,22 +1,50 @@
+
+.expectation{
+  background-color: rgb(158, 193, 245);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
 .section{
-  margin: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  color: rgb(56, 55, 55);
+  width: 50%;
+  height: fit-content;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.target-amount, .section button {
+  width: 70%;
+  max-width: 200px;
+  height: 40px;
+  font-size: large;
+}
+
+.target-amount::placeholder{
+  font-size: large;
 }
 
 .button{
-  height: 40px;
-  padding: 10px;
-  margin: 5px 0px;
-  border-radius: 8px;
+  width: 160px;
   cursor: pointer;
-  transition: 1s;
-  font-size: 15px;
-  width: fit-content;
-  align-self: center;
+  background-color: rgb(247, 250, 253);
+  font-size: 22px;
+  font-weight: 400;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
 .button:hover{
-  background-color: rgb(179, 179, 133);
-  transform: scale(110%);
+  /* background-color: rgb(179, 179, 133);
+  transform: scale(110%); */
+  transform: scale(105%);
+    color: rgb(153, 1, 1);
 }
 
 .textarea{
@@ -77,4 +105,36 @@ input {
   color: red;
   font-size: 15px;
   margin-top: 25px;
+}
+
+.form-row{
+  display: flex;
+  gap: 5px;
+  width: 80%;
+  justify-content: start;
+  align-items: center;
+}
+
+.form-row h3{
+  flex: 30%;
+}
+
+.form-row input{
+  flex: 70%;
+}
+
+.crowd-fund{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  height: 800px;
+  overflow-y: scroll;
+}
+
+.title-bar{
+  text-align: center;
+  margin: 10px;
+  font-size: 26px;
+  font-weight: 600;
 }
